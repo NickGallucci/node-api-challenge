@@ -3,6 +3,10 @@ const server = require("./server");
 const host = process.env.HOST || "http://127.0.0.1";
 const port = process.env.PORT || 8000;
 
+server.get('/', (req, res) => {
+    res.sendFile('./html/index.html', { root: __dirname });
+});
+
 server.listen(port, () => port, console.log(`\n ***Server running on ${host}:${port}!** \n`))
 
 /*
